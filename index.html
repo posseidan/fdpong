@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FDPong Shuffle</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>FDPong Shuffle</h1>
+
+    <div id="game">
+
+        <!-- Linke Pyramide -->
+        <div class="rack left-rack">
+
+            <div class="row row1">
+                <div class="slot"><div class="circle pink" draggable="true"></div></div>
+            </div>
+
+            <div class="row row2">
+                <div class="slot"><div class="circle green" draggable="true"></div></div>
+                <div class="slot"><div class="circle red" draggable="true"></div></div>
+            </div>
+
+            <div class="row row3">
+                <div class="slot"><div class="circle blue" draggable="true"></div></div>
+                <div class="slot"><div class="circle pink" draggable="true"></div></div>
+                <div class="slot"><div class="circle blue" draggable="true"></div></div>
+            </div>
+
+            <div class="row row4">
+                <div class="slot"><div class="circle black" draggable="true"></div></div>
+                <div class="slot"><div class="circle red" draggable="true"></div></div>
+                <div class="slot"><div class="circle green" draggable="true"></div></div>
+                <div class="slot"><div class="circle black" draggable="true"></div></div>
+            </div>
+        </div>
+
+
+        <!-- Rechte Pyramide -->
+        <div class="rack right-rack">
+
+            <div class="row row1">
+                <div class="slot"><div class="circle pink" draggable="true"></div></div>
+            </div>
+
+            <div class="row row2">
+                <div class="slot"><div class="circle green" draggable="true"></div></div>
+                <div class="slot"><div class="circle red" draggable="true"></div></div>
+            </div>
+
+            <div class="row row3">
+                <div class="slot"><div class="circle blue" draggable="true"></div></div>
+                <div class="slot"><div class="circle pink" draggable="true"></div></div>
+                <div class="slot"><div class="circle blue" draggable="true"></div></div>
+            </div>
+
+            <div class="row row4">
+                <div class="slot"><div class="circle black" draggable="true"></div></div>
+                <div class="slot"><div class="circle red" draggable="true"></div></div>
+                <div class="slot"><div class="circle green" draggable="true"></div></div>
+                <div class="slot"><div class="circle black" draggable="true"></div></div>
+            </div>
+        </div>
+
+    </div>
+
+    <button id="shuffleButton">Mischen</button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
