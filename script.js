@@ -168,3 +168,24 @@ slots.forEach(slot => {
     });
 
 });
+const infoButton = document.getElementById("infoButton");
+const infoModal = document.getElementById("infoModal");
+const closeInfo = document.getElementById("closeInfo");
+
+
+infoButton.addEventListener("click", () => {
+    infoModal.style.display = "flex";
+});
+
+
+closeInfo.addEventListener("click", () => {
+    infoModal.style.display = "none";
+});
+infoModal.addEventListener("click", event => {
+
+    if (event.target === infoModal) {
+        infoModal.style.display = "none";
+    }
+
+});
+shuffleCircles();

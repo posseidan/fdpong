@@ -50,7 +50,7 @@ body {
 
     border-radius: 50%;
 
-    box-shadow: inset 0 0 0 7px #0000000f;
+    box-shadow: inset 0 0 0 5px #0000000f;
 
     cursor: grab;
 }
@@ -101,6 +101,7 @@ body {
     visibility: hidden;
 }
 #extra-area {
+    overflow-x: auto;
     text-align: center;
 }
 
@@ -112,7 +113,22 @@ body {
 
 /* Button */
 
-button {
+#shuffleButton {
+    padding: 12px 25px;
+
+    font-size: 18px;
+    background: rgb(255, 153, 0);
+    color: white;
+    border: 0px;
+    padding: 15px 30px;
+    border-radius: 15px;
+    outline: 0px;
+    box-shadow: none;
+    width: 200px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+#infoButton {
     padding: 12px 25px;
 
     font-size: 18px;
@@ -132,13 +148,65 @@ button {
     flex-direction: column;
     gap: 10px;
     font-size: 22px;
+    margin-bottom: 10px;
 }
 #toggleRow5Checkbox {
 
     transform: scale(1.5);
 }
+.modal {
+    display: none;
+
+    position: fixed;
+    z-index: 1000;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+
+    width: 90%;
+    max-width: 500px;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    position: relative;
+
+    text-align: left;
+    overflow-y: auto;
+    max-height: 100dvh;
+    margin-top: 50px;
+
+}
+
+.close {
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    font-size: 30px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
 @media (max-width: 600px) {
 
+    .extra-circles {
+        margin-left: 30px;
+    }
     #game {
         flex-direction: column;
         gap: 60px;
@@ -156,6 +224,8 @@ button {
     .circle {
         width: 55px;
         height: 55px;
+        
+        min-width: 55px;
     }
 }
 
