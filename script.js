@@ -11,29 +11,80 @@ let draggedCircle = null;
 
 function shuffleCircles() {
 
-    const circles = Array.from(
-        document.querySelectorAll(".circle")
-    );
-
     const slots = Array.from(
-        document.querySelectorAll(".slot")
+        document.querySelectorAll("#game .rack .row:not(.hidden) .slot")
+    ).filter(slot => {
+        return !slot.querySelector(".circle.white");
+    });
+
+    const circles = slots.map(slot => {
+        return slot.querySelector(".circle");
+    });
+
+    let shuffleCount = 0;
+    const maxShuffles = 6;
+
+    const interval = setInterval(() => {
+
+        for (let i = circles.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+
+            [circles[i], circles[j]] =
+                [circles[j], circles[i]];
+        }
+
+        slots.forEach((slot, index) => {
+            slot.appendChild(circles[index]);
+        });
+
+        shuffleCount++;
+
+        if (shuffleCount >= maxShuffles) {
+            clearInterval(interval);
+        }
+
+    }, 60);
+}
+const toggleRow5Checkbox = document.getElementById("toggleRow5Checkbox");
+
+toggleRow5Checkbox.addEventListener("change", () => {
+    swapRow5();
+});
+
+function swapRow5() {
+
+    const row5Slots = Array.from(
+        document.querySelectorAll(".rack .row5 .slot")
     );
 
-    for (let i = circles.length - 1; i > 0; i--) {
+    const extraArea = document.querySelector(".extra-circles");
 
-        const j = Math.floor(
-            Math.random() * (i + 1)
+    const row5Circles = row5Slots.map(slot =>
+        slot.querySelector(".circle")
+    );
+
+    const extraCircles = Array.from(
+        extraArea.querySelectorAll(".circle")
+    );
+
+    // Anzahl muss übereinstimmen
+    if (row5Circles.length !== extraCircles.length) {
+        console.error(
+            "Row5 und Extra-Area müssen gleich viele Kreise enthalten!"
         );
-
-        [circles[i], circles[j]] =
-            [circles[j], circles[i]];
+        return;
     }
 
-    slots.forEach((slot, index) => {
-        slot.appendChild(circles[index]);
+    // Zuerst Kreise aus row5 merken / herausnehmen
+    row5Circles.forEach(circle => {
+        extraArea.appendChild(circle);
+    });
+
+    // Danach die vorherigen Extra-Kreise in row5 einsetzen
+    row5Slots.forEach((slot, index) => {
+        slot.appendChild(extraCircles[index]);
     });
 }
-
 
 // -----------------------
 // Drag & Drop
@@ -66,20 +117,23 @@ circles.forEach(circle => {
 
 slots.forEach(slot => {
 
-    // Erlaubt das Ablegen
     slot.addEventListener("dragover", event => {
+
+        const targetCircle = slot.querySelector(".circle");
+
+        // Auf weiße Kreise darf nicht gedroppt werden
+        if (targetCircle?.classList.contains("white")) {
+            return;
+        }
 
         event.preventDefault();
 
         slot.classList.add("drag-over");
-
     });
 
 
     slot.addEventListener("dragleave", () => {
-
         slot.classList.remove("drag-over");
-
     });
 
 
@@ -93,22 +147,24 @@ slots.forEach(slot => {
             return;
         }
 
-
         const targetCircle = slot.querySelector(".circle");
+
+        // White komplett sperren
+        if (
+            draggedCircle.classList.contains("white") ||
+            targetCircle?.classList.contains("white")
+        ) {
+            return;
+        }
 
         const oldSlot = draggedCircle.parentElement;
 
-
-        // Wenn auf einen anderen Kreis gezogen wird:
-        // Positionen tauschen
         if (targetCircle && targetCircle !== draggedCircle) {
 
             oldSlot.appendChild(targetCircle);
-
             slot.appendChild(draggedCircle);
 
         }
-
     });
 
 });

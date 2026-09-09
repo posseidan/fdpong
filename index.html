@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <h1>FDPong Shuffle</h1>
-
     <div id="game">
 
         <!-- Linke Pyramide -->
@@ -21,7 +18,7 @@
             </div>
 
             <div class="row row2">
-                <div class="slot"><div class="circle green" draggable="true"></div></div>
+                <div class="slot"><div class="circle yellow" draggable="true"></div></div>
                 <div class="slot"><div class="circle red" draggable="true"></div></div>
             </div>
 
@@ -34,8 +31,15 @@
             <div class="row row4">
                 <div class="slot"><div class="circle black" draggable="true"></div></div>
                 <div class="slot"><div class="circle red" draggable="true"></div></div>
-                <div class="slot"><div class="circle green" draggable="true"></div></div>
+                <div class="slot"><div class="circle yellow" draggable="true"></div></div>
                 <div class="slot"><div class="circle black" draggable="true"></div></div>
+            </div>
+            <div class="row row5">
+                <div class="slot"><div class="circle black" draggable="true"></div></div>
+                <div class="slot"><div class="circle red" draggable="true"></div></div>
+                <div class="slot"><div class="circle yellow" draggable="true"></div></div>
+                <div class="slot"><div class="circle blue" draggable="true"></div></div>
+                <div class="slot"><div class="circle pink" draggable="true"></div></div>
             </div>
         </div>
 
@@ -48,7 +52,7 @@
             </div>
 
             <div class="row row2">
-                <div class="slot"><div class="circle green" draggable="true"></div></div>
+                <div class="slot"><div class="circle yellow" draggable="true"></div></div>
                 <div class="slot"><div class="circle red" draggable="true"></div></div>
             </div>
 
@@ -61,14 +65,41 @@
             <div class="row row4">
                 <div class="slot"><div class="circle black" draggable="true"></div></div>
                 <div class="slot"><div class="circle red" draggable="true"></div></div>
-                <div class="slot"><div class="circle green" draggable="true"></div></div>
+                <div class="slot"><div class="circle yellow" draggable="true"></div></div>
                 <div class="slot"><div class="circle black" draggable="true"></div></div>
             </div>
+            <div class="row row5">
+                <div class="slot"><div class="circle black" draggable="true"></div></div>
+                <div class="slot"><div class="circle red" draggable="true"></div></div>
+                <div class="slot"><div class="circle yellow" draggable="true"></div></div>
+                <div class="slot"><div class="circle blue" draggable="true"></div></div>
+                <div class="slot"><div class="circle pink" draggable="true"></div></div>
+            </div>
         </div>
-
     </div>
+    <div id="bottom-area">
+        
+        <div id="extra-area">
+            <div class="extra-circles">
+                <div class="circle white"></div>
+                <div class="circle white"></div>
+                <div class="circle white"></div>
+                <div class="circle white"></div>
+                <div class="circle white"></div>
 
+                <div class="circle white"></div>
+                <div class="circle white"></div>
+                <div class="circle white"></div>
+                <div class="circle white"></div>
+                <div class="circle white"></div>
+            </div>
+        </div>
+    <label>
+        <input type="checkbox" id="toggleRow5Checkbox" checked>
+        5. Reihe anzeigen
+    </label>
     <button id="shuffleButton">Mischen</button>
+    </div>
 
     <script src="script.js"></script>
 
