@@ -43,7 +43,15 @@ body {
 
 
 /* Kreis */
-
+.preview {
+    width: 50px !important;
+    height: 50px !important;
+    cursor: default !important;
+}
+.box {
+    display: flex;
+    flex-direction: row;
+}
 .circle {
     width: 65px;
     height: 65px;
@@ -190,7 +198,9 @@ body {
     margin-top: 50px;
 
 }
-
+p {
+    margin-top: 20px;
+}
 .close {
     position: absolute;
 
@@ -204,9 +214,6 @@ body {
 }
 @media (max-width: 600px) {
 
-    .extra-circles {
-        margin-left: 30px;
-    }
     #game {
         flex-direction: column;
         gap: 60px;
